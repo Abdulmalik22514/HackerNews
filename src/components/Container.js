@@ -9,12 +9,17 @@ export default function Container({
   bottomInset = false,
   testID = '',
   barIconColor = 'dark-content',
+  backgroundColor,
 }) {
   const {top, bottom} = useSafeAreaInsets();
 
   return (
     <>
-      <StatusBar barStyle={barIconColor} translucent={false} />
+      <StatusBar
+        barStyle={barIconColor}
+        translucent={false}
+        backgroundColor={backgroundColor}
+      />
       <View style={styles.coreLayer}>
         <View style={styles.upperPart} />
         <View style={styles.lowerPart} />
