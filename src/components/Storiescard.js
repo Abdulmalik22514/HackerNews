@@ -8,7 +8,7 @@ export const StoriesCard = ({title, url}) => {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigate('WebPage', {url})}>
+      onPress={() => navigate('WebPage', {url, title})}>
       {!!title && (
         <View style={styles.titleContainer}>
           <View style={styles.dot} />
@@ -25,7 +25,7 @@ const styles = ScaledSheet.create({
   dot: {
     width: '7@s',
     height: '7@s',
-    borderRadius: 10,
+    borderRadius: '10@s',
     backgroundColor: 'black',
   },
 
