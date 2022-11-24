@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import Navigator from './src/navigation/MainNav';
 import {Provider} from 'react-redux';
-import store from './src/store/store';
+import store, {persistor} from './src/store/store';
 import SplashScreen from 'react-native-splash-screen';
+import {PersistGate} from 'redux-persist/integration/react';
 
 function App() {
   useEffect(() => {
@@ -10,7 +11,9 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-      <Navigator />
+      <PersistGate loading={null} persistor={persistor}>
+        <Navigator />
+      </PersistGate>
     </Provider>
   );
 }
