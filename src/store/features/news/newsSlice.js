@@ -7,13 +7,15 @@ const initialState = {
   error: '',
 };
 
-export const fetchNews = createAsyncThunk('news/fetchNews', () => {
-  return axios
-    .get(
-      'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty&_limit=10',
-    )
-    .then(res => res.data)
-    .catch(err => console.log(err));
+export const fetchNews = createAsyncThunk('news/fetchNews', async () => {
+  try {
+    const res = await axios.get(
+      'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty',
+    );
+    return res.data;
+  } catch (err) {
+    return console.log(err);
+  }
 });
 
 const newsSlice = createSlice({
